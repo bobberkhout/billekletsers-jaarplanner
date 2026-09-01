@@ -1,0 +1,1 @@
+<?php get_header(); ?><main class="bkp-main"><div class="bkp-wrap"><section class="bkp-card"><h1>Jaarplanner</h1><p>Open de <a href="<?php echo esc_url(home_url('/')); ?>">interne jaarplanner</a>.</p></section></div></main><?php get_footer(); ?>

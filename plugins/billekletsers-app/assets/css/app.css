@@ -1,0 +1,48 @@
+.bkpa-install-button{white-space:nowrap;flex:0 0 auto;box-shadow:0 5px 16px rgba(227,6,19,.18)}
+.bkpa-install-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);font-size:14px;font-weight:900;line-height:1}
+.bkpa-dialog{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:20px}
+.bkpa-dialog[hidden]{display:none!important}
+.bkpa-dialog-backdrop{position:absolute;inset:0;background:rgba(30,0,3,.62);backdrop-filter:blur(4px)}
+.bkpa-dialog-card{position:relative;z-index:1;width:min(460px,100%);max-height:min(680px,calc(100vh - 40px));overflow:auto;border:1px solid #eadfe0;border-radius:24px;background:#fff;padding:28px;box-shadow:0 24px 70px rgba(40,0,4,.3);color:#242424}
+.bkpa-dialog-card img{display:block;border-radius:20px;margin:0 0 16px}
+.bkpa-dialog-card h2{margin:0 44px 12px 0;font-size:1.55rem;line-height:1.15}
+.bkpa-dialog-card p{color:#5f5556}
+.bkpa-dialog-card ol{margin:14px 0 22px;padding-left:24px}
+.bkpa-dialog-card li{margin:10px 0;padding-left:3px}
+.bkpa-dialog-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:0;border-radius:50%;background:#fff0f1;color:#b6040e;font-size:26px;line-height:1;cursor:pointer}
+.bkpa-dialog-done{width:100%}
+html.bkpa-dialog-open,html.bkpa-dialog-open body{overflow:hidden}
+.bkpa-update-notice{position:fixed;left:50%;bottom:22px;z-index:99990;display:flex;align-items:center;gap:24px;width:min(720px,calc(100% - 32px));transform:translateX(-50%);border:1px solid #ffd1d5;border-radius:18px;background:#fff;padding:16px 18px;box-shadow:0 18px 55px rgba(65,0,6,.25);color:#292122}
+.bkpa-update-notice[hidden]{display:none!important}
+.bkpa-update-notice>div:first-child{display:grid;gap:3px;min-width:0;flex:1}
+.bkpa-update-notice strong{color:#b6040e;font-size:1rem}
+.bkpa-update-notice span{font-size:.9rem;color:#675b5c}
+.bkpa-update-notice-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.bkpa-update-later{border:0;background:transparent;color:#5e5354;text-decoration:underline;cursor:pointer;padding:8px}
+.bkpa-update-card{width:min(520px,100%)}
+.bkpa-version-list{display:grid;gap:0;margin:18px 0;border:1px solid #eadfe0;border-radius:14px;overflow:hidden}
+.bkpa-version-list>div{display:grid;grid-template-columns:minmax(145px,1fr) minmax(140px,1fr);gap:14px;padding:12px 14px;background:#fff}
+.bkpa-version-list>div+div{border-top:1px solid #eadfe0}
+.bkpa-version-list dt{font-weight:700;color:#3e3435}
+.bkpa-version-list dd{margin:0;text-align:right;color:#5f5556}
+.bkpa-update-status{border-radius:12px;background:#f7f3f3;padding:12px 14px;margin:0 0 16px!important}
+.bkpa-update-status[data-state="available"]{background:#fff0f1;color:#9f030c}
+.bkpa-update-status[data-state="latest"]{background:#edf8ef;color:#166b2f}
+.bkpa-update-status[data-state="error"]{background:#fff5e6;color:#805300}
+.bkpa-update-dialog-actions{display:flex;flex-wrap:wrap;gap:10px}
+.bkpa-update-help{margin:18px 0 0!important;font-size:.86rem;line-height:1.45}
+@media(max-width:650px){
+  .bkp-header-actions .bkpa-install-button{display:inline-flex!important;padding:8px 10px;font-size:.77rem}
+  .bkpa-install-button .bkpa-install-icon{display:none}
+  .bkpa-dialog-card{padding:24px 20px;border-radius:20px}
+  .bkpa-update-notice{bottom:14px;align-items:stretch;flex-direction:column;gap:12px;padding:15px}
+  .bkpa-update-notice-actions{width:100%}
+  .bkpa-update-notice-actions .bkp-btn{flex:1}
+  .bkpa-version-list>div{grid-template-columns:1fr;gap:3px}
+  .bkpa-version-list dd{text-align:left}
+  .bkpa-update-dialog-actions{display:grid}
+}
+@media(max-width:420px){
+  .bkp-header-actions .bkpa-install-button{max-width:142px;white-space:normal;line-height:1.15;text-align:center}
+}
+.bkpa-menu-install-link[hidden]{display:none!important}

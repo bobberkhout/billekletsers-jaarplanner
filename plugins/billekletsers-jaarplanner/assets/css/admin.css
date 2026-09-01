@@ -1,0 +1,132 @@
+.bkp-admin-wrap{max-width:1600px}.bkp-admin-lead{font-size:15px;max-width:980px;color:#50575e}.bkp-admin-cards{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:12px;margin:20px 0}.bkp-admin-card{display:block;background:#fff;border:1px solid #ddd;border-left:5px solid #d20819;border-radius:8px;padding:18px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.04)}.bkp-admin-card:hover{border-color:#d20819}.bkp-admin-card strong{display:block;font-size:28px;color:#d20819;line-height:1}.bkp-admin-card span{display:block;margin-top:8px;color:#1d2327;font-weight:600}.bkp-admin-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.8fr);gap:18px}.bkp-admin-panel{background:#fff;border:1px solid #dcdcde;border-radius:8px;padding:20px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.03)}.bkp-admin-panel>h2:first-child{margin-top:0}.bkp-admin-meta{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;margin-top:20px}.bkp-admin-meta dt{font-weight:600}.bkp-admin-meta dd{margin:0}.bkp-grid-toolbar{display:flex;align-items:center;gap:10px;margin:16px 0}.bkp-grid-toolbar h2{margin:0 auto 0 0}.bkp-grid-search{width:min(420px,100%);padding:8px 10px;border:1px solid #8c8f94;border-radius:4px}.bkp-grid-count{color:#646970;margin-left:auto}.bkp-grid-scroll{overflow:auto;max-height:calc(100vh - 245px);border:1px solid #c3c4c7;background:#fff}.bkp-edit-grid{border:0!important;min-width:1100px}.bkp-edit-grid thead th{position:sticky;top:0;z-index:4;background:#f6f7f7!important;white-space:nowrap;vertical-align:bottom}.bkp-edit-grid td{vertical-align:top}.bkp-edit-grid input:not([type=checkbox]),.bkp-edit-grid textarea,.bkp-edit-grid select{box-sizing:border-box;width:100%;min-width:110px}.bkp-edit-grid textarea{min-width:180px;resize:vertical}.bkp-edit-grid .bkp-col-wide{min-width:240px}.bkp-edit-grid th.bkp-col-wide{min-width:240px}.bkp-col-number,.bkp-row-number{width:46px;text-align:center}.bkp-source{min-width:90px;white-space:nowrap;color:#646970;font-size:12px}.bkp-delete-cell{min-width:100px}.bkp-grid-row.is-deleted{opacity:.45;text-decoration:line-through;background:#fff1f1!important}.bkp-save-bar{position:sticky;bottom:0;z-index:8;display:flex;align-items:center;justify-content:flex-end;gap:18px;background:#fff;border:1px solid #c3c4c7;border-top:4px solid #d20819;padding:12px 16px;box-shadow:0 -4px 14px rgba(0,0,0,.08)}.bkp-save-bar span{margin-right:auto;color:#50575e}.bkp-save-bar .submit{margin:0;padding:0}.bkp-month-column{width:42px;min-width:42px;text-align:center!important}.bkp-month-check{text-align:center}.bkp-month-check label{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;cursor:pointer}.bkp-month-check input{position:absolute;opacity:0}.bkp-month-check span{display:block;width:20px;height:20px;border:1px solid #8c8f94;border-radius:4px;background:#fff}.bkp-month-check input:checked+span{background:#d20819;border-color:#d20819;box-shadow:inset 0 0 0 4px #fff}.bkp-switch{display:inline-flex;align-items:center;justify-content:center;min-width:48px;height:30px}.bkp-switch input{position:absolute;opacity:0}.bkp-switch span{position:relative;width:42px;height:22px;background:#a7aaad;border-radius:999px}.bkp-switch span:after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;left:3px;transition:.15s}.bkp-switch input:checked+span{background:#1d7a38}.bkp-switch input:checked+span:after{left:23px}.bkp-contact-form{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:16px}.bkp-contact-form label{display:grid;gap:6px;font-weight:600}.bkp-contact-form input,.bkp-contact-form textarea{width:100%;box-sizing:border-box}.bkp-span-2{grid-column:1/-1}.bkp-admin-wrap code{word-break:break-word}
+@media(max-width:1100px){.bkp-admin-cards{grid-template-columns:repeat(2,minmax(150px,1fr))}.bkp-admin-columns{grid-template-columns:1fr}}
+@media(max-width:700px){.bkp-admin-cards{grid-template-columns:1fr}.bkp-contact-form{grid-template-columns:1fr}.bkp-span-2{grid-column:auto}.bkp-grid-toolbar{flex-wrap:wrap}.bkp-grid-count{margin-left:0}.bkp-save-bar{align-items:flex-start;flex-direction:column}.bkp-save-bar span{margin-right:0}}
+
+/* Sneller commissiebeheer in versie 3.2. */
+.bkp-committee-quick{border-top:4px solid #d20819}
+.bkp-committee-add-grid{display:grid;grid-template-columns:minmax(240px,1.2fr) minmax(240px,1fr) minmax(240px,1fr) auto;gap:14px;align-items:end}
+.bkp-committee-add-grid label{display:grid;gap:6px;font-weight:600}
+.bkp-committee-add-grid input,.bkp-committee-add-grid select{width:100%;box-sizing:border-box}
+.bkp-committee-add-submit{padding-bottom:1px}
+.bkp-new-committee-field[hidden]{display:none}
+.bkp-committee-sections{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:16px;margin:4px 0 18px}
+.bkp-committee-panel{background:#fff;border:1px solid #dcdcde;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.bkp-committee-panel[hidden]{display:none}
+.bkp-committee-panel-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;background:#f6f7f7;border-bottom:1px solid #dcdcde}
+.bkp-committee-panel-header h3{margin:0 0 2px;font-size:16px}
+.bkp-committee-panel-header span{color:#646970;font-size:12px}
+.bkp-confirm-delete-committee{white-space:nowrap}
+.bkp-simple-members{display:grid}
+.bkp-simple-member-row{display:grid;grid-template-columns:minmax(200px,1fr) auto;gap:14px;align-items:center;padding:10px 14px;border-bottom:1px solid #f0f0f1}
+.bkp-simple-member-row:last-child{border-bottom:0}
+.bkp-simple-member-row input[type=text]{width:100%;box-sizing:border-box}
+.bkp-simple-member-row.is-deleted{opacity:.48;background:#fff1f1;text-decoration:line-through}
+.bkp-simple-delete{white-space:nowrap;color:#646970}
+.bkp-committees-admin .bkp-grid-toolbar>div:first-child{margin-right:auto}
+.bkp-committees-admin .bkp-grid-toolbar h2{margin:0 0 3px}
+.bkp-committees-admin .bkp-grid-toolbar .description{margin:0}
+.bkp-committee-members-form .bkp-save-bar{border-radius:0 0 6px 6px}
+@media(max-width:1250px){.bkp-committee-add-grid{grid-template-columns:repeat(2,minmax(240px,1fr))}.bkp-committee-add-submit{align-self:end}.bkp-committee-sections{grid-template-columns:1fr}}
+@media(max-width:700px){.bkp-committee-add-grid{grid-template-columns:1fr}.bkp-committee-panel-header{align-items:flex-start;flex-direction:column}.bkp-simple-member-row{grid-template-columns:1fr}.bkp-simple-delete{justify-self:start}}
+
+
+/* Sorteerbare projectplanning in versie 3.3. */
+.bkp-sort-control{display:inline-flex;align-items:center;gap:6px}
+.bkp-sort-control select{min-width:190px}
+.bkp-col-order,.bkp-order-cell{width:92px;min-width:92px;text-align:center!important}
+.bkp-order-cell{white-space:nowrap}
+.bkp-drag-handle,.bkp-order-buttons .button-link{display:inline-flex;align-items:center;justify-content:center;width:28px;height:30px;color:#50575e;text-decoration:none;cursor:pointer}
+.bkp-drag-handle{cursor:grab}
+.bkp-drag-handle:active{cursor:grabbing}
+.bkp-order-buttons{display:inline-flex;vertical-align:top}
+.bkp-order-buttons .dashicons,.bkp-drag-handle .dashicons{font-size:18px;width:18px;height:18px}
+.bkp-order-cell .button-link:hover,.bkp-order-cell .button-link:focus{color:#d20819}
+.bkp-grid-row.is-sorting{background:#fff8e5!important;box-shadow:0 5px 18px rgba(0,0,0,.18)}
+.bkp-sort-placeholder td{height:52px;background:#fff1f1!important;border:2px dashed #d20819!important}
+@media(max-width:900px){.bkp-sort-control{width:100%;order:4}.bkp-sort-control select{flex:1;min-width:0}}
+
+
+/* Documentenbeheer in versie 3.4. */
+.bkp-document-upload{border-top:4px solid #d20819}
+.bkp-document-upload-grid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:16px;align-items:end}
+.bkp-document-upload-grid label{display:grid;gap:6px;font-weight:600}
+.bkp-document-upload-grid input[type=text],.bkp-document-upload-grid input[type=file],.bkp-document-upload-grid textarea{width:100%;box-sizing:border-box}
+.bkp-document-upload-grid .bkp-document-visible{display:flex;align-items:center;gap:8px;font-weight:400}
+.bkp-documents-table{min-width:1050px}
+.bkp-documents-table td{vertical-align:middle}
+@media(max-width:700px){.bkp-document-upload-grid{grid-template-columns:1fr}}
+
+/* Persoonlijke frontend bewerkrechten in versie 3.5. */
+.bkp-editors-grid{min-width:1250px}.bkp-editors-grid thead th{position:sticky;top:0;z-index:3;background:#f6f7f7}.bkp-editors-grid td{vertical-align:middle}.bkp-editors-grid th:not(:first-child):not(:nth-child(2)),.bkp-editors-grid td.bkp-editor-check{text-align:center}.bkp-editor-check input{width:18px;height:18px}.bkp-editor-all-column{border-left:2px solid #d20819}.bkp-auto-access{display:inline-block;margin-top:5px;color:#1d7a38;font-weight:600;font-size:12px}.bkp-editors-admin .bkp-grid-scroll{max-height:calc(100vh - 300px)}
+
+/* Nieuw seizoen klaarzetten - versie 3.6 */
+.bkp-season-fields{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:16px;max-width:900px;margin:16px 0}
+.bkp-season-fields label{display:grid;gap:6px;font-weight:700}
+.bkp-season-fields input{width:100%}
+.bkp-season-span-2{grid-column:1/-1}
+.bkp-season-date-cards{display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:12px;margin:18px 0}
+.bkp-season-date-card{border:1px solid #eadfe0;border-radius:12px;background:#fff8f8;padding:14px}
+.bkp-season-date-card span{display:block;color:#6b6b6b;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.bkp-season-date-card strong{display:block;margin-top:4px;font-size:15px}
+.bkp-season-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.bkp-season-preview-table{min-width:1120px}
+.bkp-season-preview-table td{vertical-align:middle}
+.bkp-season-preview-table input[type=date]{min-width:150px}
+.bkp-season-project-option,.bkp-season-confirm{margin-top:18px;border:1px solid #eadfe0;border-radius:12px;background:#fff;padding:16px}
+.bkp-season-confirm{border-color:#e3b3b6;background:#fff7f7;font-weight:700}
+.bkp-season-snapshots{display:grid;gap:10px}
+.bkp-season-snapshot{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #eadfe0;border-radius:10px;padding:12px 14px;background:#fff}
+.bkp-season-snapshot strong,.bkp-season-snapshot span{display:block}
+.bkp-season-snapshot span{color:#6b6b6b;font-size:12px;margin-top:3px}
+.bkp-season-last{margin:14px 0}
+@media(max-width:900px){.bkp-season-fields,.bkp-season-date-cards{grid-template-columns:1fr}.bkp-season-span-2{grid-column:auto}.bkp-season-heading,.bkp-season-snapshot{align-items:flex-start;flex-direction:column}}
+.bkp-season-principles{margin:16px 0;border:1px solid #eadfe0;border-radius:12px;background:#fff}
+.bkp-season-principles summary{cursor:pointer;padding:13px 15px;font-weight:700;color:#8b1119}
+.bkp-season-principle-list{display:grid;gap:0;border-top:1px solid #eadfe0}
+.bkp-season-principle-list>div{display:grid;grid-template-columns:minmax(220px,1fr) minmax(140px,.6fr) minmax(280px,1.4fr);gap:14px;padding:11px 15px;border-bottom:1px solid #f0e7e8}
+.bkp-season-principle-list>div:last-child{border-bottom:0}.bkp-season-principle-list span,.bkp-season-principle-list small{color:#6b6b6b}
+@media(max-width:900px){.bkp-season-principle-list>div{grid-template-columns:1fr;gap:4px}}
+
+/* Gekoppelde WordPress-gebruikers voor automatische e-mailrouting - versie 3.6.3. */
+.bkp-col-users{min-width:250px}
+.bkp-user-picker{position:relative;min-width:225px}
+.bkp-user-picker summary{box-sizing:border-box;cursor:pointer;list-style:none;border:1px solid #8c8f94;border-radius:4px;background:#fff;padding:7px 30px 7px 9px;min-height:36px;font-weight:600;color:#1d2327;position:relative}
+.bkp-user-picker summary::-webkit-details-marker{display:none}
+.bkp-user-picker summary:after{content:"▼";position:absolute;right:10px;top:9px;font-size:10px;color:#646970}
+.bkp-user-picker[open] summary:after{content:"▲"}
+.bkp-user-picker-list{position:absolute;z-index:30;left:0;top:calc(100% + 4px);width:min(380px,70vw);max-height:280px;overflow:auto;background:#fff;border:1px solid #8c8f94;border-radius:5px;box-shadow:0 10px 24px rgba(0,0,0,.18);padding:6px}
+.bkp-user-picker-list label{display:grid;grid-template-columns:20px 1fr;gap:0 6px;align-items:center;padding:7px 8px;border-radius:4px;cursor:pointer}
+.bkp-user-picker-list label:hover{background:#f6f7f7}
+.bkp-user-picker-list input{grid-row:1/3;width:16px!important;min-width:16px!important;margin:0}
+.bkp-user-picker-list span{font-weight:600;line-height:1.25}
+.bkp-user-picker-list small{color:#646970;line-height:1.25;word-break:break-all}
+.bkp-user-picker-list p{margin:8px;color:#646970}
+.bkp-user-picker--meta{max-width:520px}
+.bkp-user-picker--meta .bkp-user-picker-list{position:relative;top:auto;width:auto;box-shadow:none;margin-top:5px}
+.bkp-user-picker--grid .bkp-user-picker-list{position:relative;top:auto;width:100%;box-shadow:none;margin-top:5px}
+
+/* Gegroepeerde beheerstartpagina's in de centrale Jaarplanner-plugin. */
+.bkp-admin-card small{display:block;margin-top:8px;color:#666;font-size:12px;line-height:1.4;font-weight:400}
+
+
+/* 1.0.3: houd verborgen selectievakjes op de zichtbare knoppositie.
+   Dit voorkomt dat de browser bij focus naar een andere plek in de pagina of grid scrolt. */
+.bkp-switch,.bkp-month-check label{position:relative;cursor:pointer}
+.bkp-switch input,.bkp-month-check input{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;opacity:0!important;cursor:pointer;z-index:2}
+.bkp-switch input:focus-visible+span,.bkp-month-check input:focus-visible+span{outline:2px solid #2271b1;outline-offset:2px}
+
+/* 1.1.0: registratieaanvragen voor werkende leden. */
+.bkp-registration-copy-row{display:flex;gap:8px;align-items:center}.bkp-registration-copy-row input{flex:1;min-width:260px}.bkp-registration-section-title{display:flex;align-items:center;gap:9px;margin-top:28px}.bkp-registration-count{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;padding:0 7px;border-radius:999px;background:#d20819;color:#fff;font-size:13px}.bkp-registration-request-list{display:grid;gap:14px}.bkp-registration-request{margin:0}.bkp-registration-request-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.bkp-registration-request-head h3{margin:0 0 4px;font-size:18px}.bkp-registration-request-head p{margin:0}.bkp-registration-request-head>span{color:#646970;font-size:12px}.bkp-registration-request-info{margin:14px 0;padding:12px 14px;border-radius:8px;background:#f6f7f7}.bkp-registration-request-info p{margin:5px 0}.bkp-registration-permissions{margin:14px 0}.bkp-registration-permission-grid{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:8px}.bkp-registration-permission-grid label{display:inline-flex;align-items:center;gap:5px}.bkp-registration-request-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:12px;border-top:1px solid #e3e3e3}.bkp-registration-request-actions label{margin-left:auto}.bkp-registration-history{margin-top:28px;border:1px solid #dcdcde;border-radius:8px;background:#fff}.bkp-registration-history>summary{cursor:pointer;padding:14px 16px;font-weight:700}.bkp-registration-history-list{border-top:1px solid #dcdcde}.bkp-registration-history-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 16px;border-bottom:1px solid #eee}.bkp-registration-history-row:last-child{border-bottom:0}.bkp-registration-history-row strong,.bkp-registration-history-row span{display:block}.bkp-registration-history-row span{margin-top:3px;color:#646970;font-size:12px}@media(max-width:760px){.bkp-registration-copy-row,.bkp-registration-request-head,.bkp-registration-history-row{align-items:stretch;flex-direction:column}.bkp-registration-copy-row input{min-width:0}.bkp-registration-request-actions label{margin-left:0}}
+
+/* 1.3.0: inventarisatieresultaten en Excel-export. */
+.bkp-inventory-admin-summary{display:grid;gap:3px;min-width:115px}.bkp-inventory-admin-summary strong{color:#8b1119}.bkp-inventory-admin-summary span{color:#646970;font-size:12px}.bkp-inventory-admin-summary a{display:inline-block;margin-right:8px}
+.bkp-inventory-result-cards{grid-template-columns:repeat(3,minmax(180px,1fr));margin:18px 0}.bkp-inventory-result-cards .bkp-admin-card{cursor:default;text-decoration:none}.bkp-inventory-quick-add{display:grid;grid-template-columns:minmax(260px,1fr) 160px;gap:14px;max-width:700px}.bkp-inventory-quick-add label{display:grid;gap:6px;font-weight:600}.bkp-inventory-quick-add input{width:100%}
+@media(max-width:700px){.bkp-inventory-result-cards,.bkp-inventory-quick-add{grid-template-columns:1fr}}
+
+/* Projectbeheer */
+.bkp-project-select{min-width:170px;max-width:260px}
+.bkp-project-mapping-callout{margin-top:20px}
+.bkp-project-mapping-callout h2{margin-top:0}
+.bkp-season-project-carry{margin:12px 0;padding:12px 14px;border:1px solid #dcdcde;border-radius:6px;background:#fff}
+.bkp-season-project-carry label{display:block;margin:.35rem 0}
+.bkp-documents-table .bkp-project-select{min-width:150px}

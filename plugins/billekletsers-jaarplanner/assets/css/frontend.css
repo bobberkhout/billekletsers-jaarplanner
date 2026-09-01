@@ -1,0 +1,131 @@
+/* Functionele UI van de centrale Jaarplanner-plugin. De huisstijl blijft in het thema. */
+.bkp-primary-nav{position:sticky;top:86px;z-index:22;display:flex;align-items:center;gap:8px;margin:0 0 26px;padding:10px;border:1px solid var(--bkp-line);border-radius:16px;background:rgba(255,255,255,.97);box-shadow:0 8px 22px rgba(80,0,7,.07);backdrop-filter:blur(10px)}
+.bkp-primary-nav .bkp-tab,.bkp-nav-group summary{display:inline-flex;align-items:center;gap:8px;min-height:42px;border:0;border-radius:11px;padding:9px 14px;background:transparent;color:var(--bkp-ink);font-weight:800;cursor:pointer;white-space:nowrap;text-decoration:none}
+.bkp-primary-nav .bkp-tab:hover,.bkp-primary-nav .bkp-tab[aria-selected="true"],.bkp-nav-group.is-active>summary,.bkp-nav-group summary:hover{background:var(--bkp-red);color:#fff}
+.bkp-nav-count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#fff;color:var(--bkp-red-dark);font-size:.74rem}
+.bkp-nav-group{position:relative}.bkp-nav-group summary{list-style:none}.bkp-nav-group summary::-webkit-details-marker,.bkp-action-menu summary::-webkit-details-marker{display:none}.bkp-nav-group summary:after{content:"▾";font-size:.75rem}.bkp-nav-submenu{position:absolute;top:calc(100% + 8px);left:0;z-index:45;display:grid;min-width:235px;padding:7px;border:1px solid var(--bkp-line);border-radius:12px;background:#fff;box-shadow:var(--bkp-shadow)}
+.bkp-nav-submenu button{border:0;border-radius:8px;padding:10px 12px;background:#fff;color:var(--bkp-ink);font:inherit;font-weight:750;text-align:left;cursor:pointer}.bkp-nav-submenu button:hover,.bkp-nav-submenu button[aria-selected="true"]{background:var(--bkp-red-soft);color:var(--bkp-red-dark)}
+.bkp-action-menu{position:relative}.bkp-action-menu summary{list-style:none}.bkp-action-menu summary:after{content:"▾";font-size:.72rem;margin-left:4px}.bkp-action-menu-panel{position:absolute;right:0;top:calc(100% + 8px);z-index:60;display:grid;min-width:255px;padding:7px;border:1px solid var(--bkp-line);border-radius:12px;background:#fff;box-shadow:0 15px 36px rgba(70,0,7,.18)}.bkp-action-menu-panel a{padding:10px 12px;border-radius:8px;color:var(--bkp-ink);font-weight:750;text-decoration:none}.bkp-action-menu-panel a:hover{background:var(--bkp-red-soft);color:var(--bkp-red-dark)}
+.bkp-eyebrow--red{color:var(--bkp-red);opacity:1}.bkp-overview-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 18px}.bkp-overview-card{display:grid;gap:2px;text-decoration:none;color:var(--bkp-ink);transition:.18s transform,.18s border-color}.bkp-overview-card:hover{transform:translateY(-2px);border-color:#e5a9ad}.bkp-overview-card strong{font-size:2rem;line-height:1;color:var(--bkp-red-dark)}.bkp-overview-card span{font-weight:850}.bkp-overview-card small{margin-top:7px;color:var(--bkp-muted)}.bkp-overview-columns{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}.bkp-overview-columns .bkp-card h3{margin:0}.bkp-upcoming-list{display:grid}.bkp-upcoming-list a{display:grid;grid-template-columns:155px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--bkp-line);color:var(--bkp-ink);text-decoration:none}.bkp-upcoming-list a:first-child{border-top:0}.bkp-upcoming-list time{font-size:.86rem;color:var(--bkp-red-dark);font-weight:800}.bkp-upcoming-list span{color:var(--bkp-muted);font-size:.88rem}.bkp-quick-links{display:grid;gap:8px;margin-top:14px}.bkp-quick-links button{border:1px solid var(--bkp-line);border-radius:10px;padding:11px 12px;background:#fff;color:var(--bkp-ink);font:inherit;font-weight:750;text-align:left;cursor:pointer}.bkp-quick-links button:hover{border-color:#e5a9ad;background:var(--bkp-red-soft);color:var(--bkp-red-dark)}
+.bkp-responsibility-group{margin:0 0 22px}.bkp-responsibility-group-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 9px}.bkp-responsibility-group-head h3{margin:0;font-size:1.08rem}.bkp-responsibility-group-head span{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:#eee;color:var(--bkp-ink);font-weight:850}.bkp-responsibility-list{display:grid;gap:10px}.bkp-responsibility-item{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px;border:1px solid var(--bkp-line);border-left:5px solid #b8aeb0;border-radius:13px;background:#fff}.bkp-responsibility-group.is-overdue .bkp-responsibility-item{border-left-color:var(--bkp-red);background:#fffafa}.bkp-responsibility-group.is-soon .bkp-responsibility-item{border-left-color:#db9a00}.bkp-responsibility-group.is-completed .bkp-responsibility-item{opacity:.72}.bkp-responsibility-kicker{color:var(--bkp-red-dark);font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.05em}.bkp-responsibility-item h4{margin:3px 0 6px;font-size:1.04rem}.bkp-responsibility-meta{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--bkp-muted);font-size:.86rem}.bkp-responsibility-when{font-weight:850;color:var(--bkp-red-dark)}.bkp-responsibility-actions{display:flex;gap:8px;flex:0 0 auto}.bkp-responsibility-actions .bkp-btn{padding:8px 12px;font-size:.84rem}.bkp-completed-responsibilities{margin-top:24px;border-top:1px solid var(--bkp-line);padding-top:16px}.bkp-completed-responsibilities>summary{cursor:pointer;color:var(--bkp-muted);font-weight:800}.bkp-completed-responsibilities .bkp-responsibility-group{margin-top:14px}
+@media(max-width:1050px){.bkp-primary-nav{overflow:visible}.bkp-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bkp-overview-columns{grid-template-columns:1fr}.bkp-upcoming-list a{grid-template-columns:145px 1fr}.bkp-upcoming-list span{grid-column:2}.bkp-header-my-tasks{display:none}}
+@media(max-width:760px){.bkp-primary-nav{top:74px;align-items:stretch;overflow-x:auto;border-radius:12px}.bkp-primary-nav .bkp-tab,.bkp-nav-group summary{min-height:38px;padding:8px 11px;font-size:.86rem}.bkp-nav-submenu{position:fixed;left:16px;right:16px;top:auto;width:auto;min-width:0}.bkp-overview-grid{grid-template-columns:1fr 1fr}.bkp-responsibility-item{align-items:flex-start;flex-direction:column}.bkp-responsibility-actions{width:100%}.bkp-responsibility-actions .bkp-btn{flex:1}.bkp-action-menu-panel{position:fixed;left:16px;right:16px;top:82px;min-width:0}}
+@media(max-width:520px){.bkp-overview-grid{grid-template-columns:1fr}.bkp-upcoming-list a{grid-template-columns:1fr;gap:3px}.bkp-upcoming-list span{grid-column:1}.bkp-nav-count{display:none}}
+
+
+/* 1.0.3: voorkom verspringen bij Vastgesteld- en maandselecties.
+   Het transparante invoerveld blijft exact boven de zichtbare bediening liggen. */
+.bkp-front-check,.bkp-front-months label{position:relative;cursor:pointer}
+.bkp-front-check input,.bkp-front-months input{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;opacity:0!important;cursor:pointer;z-index:2}
+.bkp-front-check input:focus-visible+span,.bkp-front-months input:focus-visible+span{outline:2px solid var(--bkp-red,#d20819);outline-offset:2px}
+
+/* 1.3.0: eenvoudige inventarisaties met naam en aantal. */
+.bkp-inventory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bkp-inventory-card{display:flex;flex-direction:column;gap:14px}
+.bkp-inventory-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.bkp-inventory-card-head h3{margin:3px 0 0}
+.bkp-inventory-meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin:0;padding:12px 0;border-top:1px solid var(--bkp-line);border-bottom:1px solid var(--bkp-line)}
+.bkp-inventory-meta div{display:grid;gap:2px}.bkp-inventory-meta dt{font-size:.75rem;font-weight:850;text-transform:uppercase;letter-spacing:.04em;color:var(--bkp-muted)}.bkp-inventory-meta dd{margin:0;font-weight:700}
+.bkp-inventory-form{display:grid;gap:12px;margin-top:auto}.bkp-inventory-fields{display:grid;grid-template-columns:minmax(0,1fr) 130px;gap:12px}.bkp-inventory-fields label{display:grid;gap:5px;font-weight:750}.bkp-inventory-submit{display:flex;align-items:center;gap:12px}.bkp-inventory-submit small{color:var(--bkp-muted)}
+.bkp-inventory-closed{border-radius:10px;padding:12px;background:#f3f3f3;color:var(--bkp-muted);font-weight:700}.bkp-inventory-notice{border-radius:10px;padding:11px 12px;font-weight:700}.bkp-inventory-notice.is-success{background:#eaf7ed;color:#176329}.bkp-inventory-notice.is-error{background:#fff0f0;color:#8b1119}.bkp-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.bkp-front-inventory-summary{display:grid;gap:3px;min-width:120px}.bkp-front-inventory-summary span{color:var(--bkp-muted);font-size:.8rem}
+@media(max-width:850px){.bkp-inventory-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.bkp-inventory-fields{grid-template-columns:1fr}.bkp-inventory-submit{align-items:stretch;flex-direction:column}.bkp-inventory-submit .bkp-btn{width:100%}}
+
+
+/* 1.3.1: ingelogde leden zien per inventarisatie de namen met aantallen. */
+.bkp-inventory-participants{display:grid;gap:10px;margin-top:2px;padding-top:14px;border-top:1px solid var(--bkp-line)}
+.bkp-inventory-participants-head{display:flex;align-items:center;justify-content:space-between;gap:14px}.bkp-inventory-participants-head>div{display:grid;gap:2px}.bkp-inventory-participants-head span{font-size:.78rem;color:var(--bkp-muted)}.bkp-inventory-participants-head>b{display:inline-flex;align-items:center;justify-content:center;min-width:72px;padding:7px 10px;border-radius:999px;background:var(--bkp-red-soft);color:var(--bkp-red-dark)}
+.bkp-inventory-participant-list{display:grid;gap:0;margin:0;padding:0;list-style:none;border:1px solid var(--bkp-line);border-radius:10px;overflow:hidden}.bkp-inventory-participant-list li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 11px;background:#fff;border-top:1px solid var(--bkp-line)}.bkp-inventory-participant-list li:first-child{border-top:0}.bkp-inventory-participant-list strong{min-width:36px;text-align:right;color:var(--bkp-red-dark)}
+.bkp-inventory-no-participants,.bkp-inventory-privacy-note{margin:0;color:var(--bkp-muted);font-size:.84rem}.bkp-inventory-privacy-note{font-size:.75rem}
+
+/* Projecten als centrale kapstok. */
+.bkp-project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem}
+.bkp-project-card{display:flex;flex-direction:column;gap:.9rem}
+.bkp-project-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.bkp-project-card-head h3{margin:.15rem 0 0}
+.bkp-project-progress{height:10px;border-radius:999px;background:#ececec;overflow:hidden}
+.bkp-project-progress>span{display:block;height:100%;min-width:0;background:var(--bkp-red,#c4161c);border-radius:inherit}
+.bkp-project-progress-meta{display:flex;justify-content:space-between;gap:1rem;align-items:center;font-size:.9rem}
+.bkp-project-progress-meta span{color:#666;text-align:right}
+.bkp-project-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 1rem;margin:0}
+.bkp-project-meta div{min-width:0}
+.bkp-project-meta dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:#777;font-weight:700}
+.bkp-project-meta dd{margin:.15rem 0 0;font-weight:600;overflow-wrap:anywhere}
+.bkp-project-details{border-top:1px solid #eee;padding-top:.75rem}
+.bkp-project-details summary{cursor:pointer;font-weight:700;color:var(--bkp-red,#c4161c)}
+.bkp-project-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
+.bkp-project-sections>div{display:flex;flex-direction:column;gap:.25rem;padding:.75rem;border:1px solid #eee;border-radius:10px;background:#fafafa}
+.bkp-project-sections>div>strong{display:flex;justify-content:space-between;gap:.5rem}
+.bkp-project-sections>div>span{font-size:1.15rem;font-weight:800;color:var(--bkp-red,#c4161c)}
+.bkp-project-sections small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#666}
+.bkp-project-sections a{margin-top:auto;font-weight:700}
+.bkp-project-mini-list{display:flex;flex-direction:column;gap:.45rem}
+.bkp-project-mini-list a{display:flex;justify-content:space-between;gap:1rem;padding:.65rem .75rem;border:1px solid #eee;border-radius:9px;text-decoration:none}
+.bkp-project-mini-list a:hover{border-color:var(--bkp-red,#c4161c)}
+.bkp-project-mini-list span{color:#666;text-align:right;font-size:.9rem}
+.bkp-event-project{display:inline-flex;margin-bottom:.25rem;padding:.15rem .5rem;border-radius:999px;background:#fff1f1;color:var(--bkp-red,#c4161c);font-size:.74rem;font-weight:800}
+.bkp-responsibility-project{margin-top:.9rem}
+.bkp-responsibility-project-title{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0 0 .45rem;padding:.55rem .75rem;border-radius:9px;background:#f5f5f5;font-size:1rem}
+.bkp-responsibility-project-title span{display:inline-flex;min-width:1.75rem;height:1.75rem;align-items:center;justify-content:center;border-radius:999px;background:#fff;color:var(--bkp-red,#c4161c);font-size:.82rem}
+.bkp-project-select{max-width:100%}
+
+@media (max-width:700px){
+  .bkp-project-grid{grid-template-columns:1fr}
+  .bkp-project-meta,.bkp-project-sections{grid-template-columns:1fr}
+  .bkp-project-progress-meta,.bkp-project-mini-list a{align-items:flex-start;flex-direction:column}
+  .bkp-project-progress-meta span,.bkp-project-mini-list span{text-align:left}
+}
+
+/* 1.4.1: detailpagina voor Mijn verantwoordelijkheden. */
+.bkp-responsibility-item.is-clickable{cursor:pointer;transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease}
+.bkp-responsibility-item.is-clickable:hover,.bkp-responsibility-item.is-clickable:focus-visible{border-color:var(--bkp-red,#c4161c);box-shadow:0 8px 24px rgba(60,20,20,.09);transform:translateY(-1px);outline:none}
+.bkp-detail-hero{padding-bottom:34px}
+.bkp-responsibility-detail-wrap{padding-top:24px;padding-bottom:50px}
+.bkp-detail-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.bkp-detail-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:20px;align-items:start}
+.bkp-responsibility-detail-card,.bkp-progress-log-card{padding:22px}
+.bkp-detail-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;margin:0 0 22px;padding:16px;border-radius:12px;background:#f7f7f7}
+.bkp-detail-summary div{min-width:0}.bkp-detail-summary dt{font-size:.74rem;font-weight:850;text-transform:uppercase;letter-spacing:.04em;color:var(--bkp-muted)}.bkp-detail-summary dd{margin:3px 0 0;font-weight:700;overflow-wrap:anywhere}
+.bkp-responsibility-detail-form{display:grid;gap:18px}.bkp-detail-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.bkp-detail-fields>label:not(.bkp-detail-checkbox),.bkp-detail-note{display:grid;gap:6px;font-weight:800}.bkp-detail-fields label>span,.bkp-detail-note>span{font-size:.86rem}.bkp-detail-checkbox{display:flex;align-items:center;gap:10px;min-height:48px;padding:11px 12px;border:1px solid var(--bkp-line);border-radius:10px;background:#fff;font-weight:800;cursor:pointer}.bkp-detail-checkbox input{width:20px;height:20px}
+.bkp-detail-note textarea{min-height:130px;resize:vertical}.bkp-detail-note small{color:var(--bkp-muted);font-weight:500}.bkp-detail-save{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.bkp-detail-save span{color:var(--bkp-muted);font-size:.84rem}
+.bkp-detail-warning{padding:12px 14px;border-left:4px solid #db9a00;border-radius:8px;background:#fff8e5;color:#5c4300;font-size:.88rem}
+.bkp-general-notes{margin-bottom:16px;padding:14px;border-radius:10px;background:#f7f7f7}.bkp-general-notes p{margin:7px 0 0;color:var(--bkp-muted)}
+.bkp-log-count{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 9px;border-radius:999px;background:var(--bkp-red-soft);color:var(--bkp-red-dark);font-weight:850}
+.bkp-progress-log{display:grid;gap:12px;margin:0;padding:0;list-style:none}.bkp-progress-log li{padding:13px 14px;border:1px solid var(--bkp-line);border-radius:11px;background:#fff}.bkp-progress-log li.is-system{background:#f7f7f7;border-style:dashed}.bkp-progress-log-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px}.bkp-progress-log-head time{color:var(--bkp-muted);font-size:.78rem;white-space:nowrap}.bkp-progress-log p{margin:0;white-space:normal;overflow-wrap:anywhere}.bkp-responsibility-detail-error{margin:50px auto;max-width:650px;padding:28px}
+@media(max-width:900px){.bkp-detail-grid{grid-template-columns:1fr}.bkp-progress-log-card{order:2}}
+@media(max-width:620px){.bkp-detail-summary,.bkp-detail-fields{grid-template-columns:1fr}.bkp-responsibility-detail-card,.bkp-progress-log-card{padding:16px}.bkp-detail-save{align-items:stretch;flex-direction:column}.bkp-detail-save .bkp-btn{width:100%}.bkp-progress-log-head{align-items:flex-start;flex-direction:column;gap:2px}}
+
+
+/* 1.4.3: mobiele submenu's als echte viewport-bodemlade.
+   De menu-inhoud wordt met JavaScript tijdelijk rechtstreeks onder <body>
+   geplaatst, zodat sticky headers, backdrop-filters en horizontale scroll
+   de laag niet meer kunnen afknippen of onder andere onderdelen plaatsen. */
+.bkp-mobile-menu-backdrop{position:fixed;inset:0;z-index:99994;border:0;padding:0;cursor:pointer;background:rgba(35,0,4,.58);opacity:0;backdrop-filter:blur(2px);transition:opacity .16s ease}
+.bkp-mobile-menu-backdrop.is-visible{opacity:1}
+.bkp-mobile-menu-sheet{position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;z-index:99995!important;display:grid!important;align-content:start;width:100%!important;min-width:0!important;max-height:min(78vh,680px)!important;max-height:min(78dvh,680px)!important;margin:0!important;padding:0 12px calc(12px + env(safe-area-inset-bottom))!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;border:1px solid var(--bkp-line)!important;border-bottom:0!important;border-radius:22px 22px 0 0!important;background:#fff!important;box-shadow:0 -18px 55px rgba(45,0,5,.28)!important;opacity:0;transform:translateY(18px);transition:opacity .16s ease,transform .16s ease;-webkit-overflow-scrolling:touch}
+.bkp-mobile-menu-sheet.is-visible{opacity:1;transform:translateY(0)}
+.bkp-mobile-menu-sheet-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 -12px 6px;padding:15px 16px 12px;border-bottom:1px solid var(--bkp-line);background:#fff}
+.bkp-mobile-menu-sheet-title{font-size:1rem;font-weight:900;color:var(--bkp-ink)}
+.bkp-mobile-menu-sheet-close{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:0 0 38px;border:0;border-radius:50%;background:var(--bkp-red-soft);color:var(--bkp-red-dark);font-size:25px;line-height:1;cursor:pointer}
+.bkp-mobile-menu-sheet>a,.bkp-mobile-menu-sheet>button{display:flex!important;align-items:center!important;width:100%!important;min-height:50px!important;margin:0!important;border:0!important;border-radius:11px!important;padding:12px 13px!important;background:#fff!important;color:var(--bkp-ink)!important;font:inherit!important;font-weight:800!important;text-align:left!important;text-decoration:none!important;cursor:pointer!important}
+.bkp-mobile-menu-sheet>a:hover,.bkp-mobile-menu-sheet>a:focus-visible,.bkp-mobile-menu-sheet>button:hover,.bkp-mobile-menu-sheet>button:focus-visible,.bkp-mobile-menu-sheet>button[aria-selected="true"]{background:var(--bkp-red-soft)!important;color:var(--bkp-red-dark)!important;outline:none}
+body.bkp-mobile-menu-open{overflow:hidden!important}
+@media(max-width:760px){
+  /* WebKit behandelt fixed nakomelingen van een filter soms als onderdeel van
+     die sticky balk. Uitschakelen op mobiel voorkomt ook een korte flits vóór
+     de bodemlade door JavaScript naar body is verplaatst. */
+  .bkp-site-header,.bkp-primary-nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .bkp-nav-submenu,.bkp-action-menu-panel{max-height:calc(100dvh - 100px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+}
+@media(prefers-reduced-motion:reduce){.bkp-mobile-menu-backdrop,.bkp-mobile-menu-sheet{transition:none}}
+
+
+/* 1.5.3: filters voor Mijn verantwoordelijkheden. */
+.bkp-responsibility-filters{display:grid;grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(150px,.72fr));gap:10px;margin:0 0 8px;padding:14px;border:1px solid var(--bkp-line);border-radius:13px;background:#fff}
+.bkp-responsibility-filters label{display:grid;gap:5px;min-width:0;color:var(--bkp-muted);font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.035em}
+.bkp-responsibility-filters .bkp-field{width:100%;min-width:0;text-transform:none;letter-spacing:normal}
+.bkp-responsibility-filter-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:34px;margin:0 0 14px;color:var(--bkp-muted);font-size:.84rem}
+.bkp-responsibility-filter-summary .bkp-filter-reset{margin-left:auto}
+@media(max-width:980px){.bkp-responsibility-filters{grid-template-columns:1fr 1fr}.bkp-responsibility-filter-search{grid-column:1/-1}}
+@media(max-width:620px){.bkp-responsibility-filters{grid-template-columns:1fr}.bkp-responsibility-filter-search{grid-column:auto}.bkp-responsibility-filter-summary{align-items:flex-start;flex-direction:column}.bkp-responsibility-filter-summary .bkp-filter-reset{margin-left:0}}

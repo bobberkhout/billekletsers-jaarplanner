@@ -1,0 +1,3 @@
+<!doctype html>
+<html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><?php wp_head(); ?></head><body <?php body_class(); ?>><?php wp_body_open(); ?>
+<header class="bkp-site-header"><div class="bkp-wrap bkp-header-inner"><a class="bkp-brand" href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri().'/assets/images/logo-cropped.jpg'); ?>" alt="C.V. De Billekletsers"><div><strong>C.V. De Billekletsers</strong><span>Interne jaarplanner</span></div></a><?php if(function_exists('bkp_render_header_actions')) bkp_render_header_actions(); ?></div></header>
