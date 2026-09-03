@@ -3,7 +3,7 @@
  * Plugin Name: Billekletsers Billeplein
  * Plugin URI: https://www.cvdebillekletsers.nl/
  * Description: Interne sociale plek voor werkende leden: vragen, ideeën, hulpvragen, polls, reacties en e-mailmeldingen.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Author: C.V. De Billekletsers
@@ -11,7 +11,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('BKB_VERSION','1.0.0');
+define('BKB_VERSION','1.1.0');
 define('BKB_FILE',__FILE__);
 define('BKB_DIR',plugin_dir_path(__FILE__));
 define('BKB_URL',plugin_dir_url(__FILE__));
@@ -149,7 +149,12 @@ function bkb_render_panel(){
             <label><span>Titel</span><input class="bkp-field" type="text" name="bkb_title" maxlength="160" required></label>
             <label><span>Bericht</span><textarea class="bkp-field" name="bkb_body" rows="5" required></textarea></label>
             <div class="bkb-poll-fields" id="bkb-poll-fields" hidden>
-              <label><span>Antwoordopties</span><textarea class="bkp-field" name="bkb_poll_options" rows="5" placeholder="Eén antwoord per regel"></textarea></label>
+              <span class="bkb-poll-options-label">Antwoordopties <small>(minstens 2)</small></span>
+              <div class="bkb-poll-options-list" id="bkb-poll-options-list">
+                <div class="bkb-poll-option-row"><input class="bkp-field" type="text" name="bkb_poll_option[]" placeholder="Keuze 1" maxlength="200"><button type="button" class="bkb-poll-option-remove" aria-label="Verwijder deze keuze" hidden>&times;</button></div>
+                <div class="bkb-poll-option-row"><input class="bkp-field" type="text" name="bkb_poll_option[]" placeholder="Keuze 2" maxlength="200"><button type="button" class="bkb-poll-option-remove" aria-label="Verwijder deze keuze" hidden>&times;</button></div>
+              </div>
+              <button type="button" class="bkp-btn bkp-btn--light bkb-poll-option-add" id="bkb-poll-option-add">+ Extra keuze toevoegen</button>
               <div class="bkb-form-grid"><label class="bkb-check"><input type="checkbox" name="bkb_poll_multiple" value="1"> Meerdere antwoorden toestaan</label><label><span>Sluitdatum (optioneel)</span><input class="bkp-field" type="date" name="bkb_poll_close"></label></div>
             </div>
             <button class="bkp-btn" type="submit">Plaatsen op Billeplein</button>
@@ -235,7 +240,7 @@ function bkb_handle_create(){
     $type=sanitize_key($_POST['bkb_type']??'idea'); if(!isset(bkb_types()[$type])) $type='idea';
     $title=sanitize_text_field(wp_unslash($_POST['bkb_title']??'')); $body=sanitize_textarea_field(wp_unslash($_POST['bkb_body']??''));
     if($title===''||$body==='') wp_die('Titel en bericht zijn verplicht.');
-    $options=array(); if($type==='poll'){ foreach(preg_split('/\r\n|\r|\n/',wp_unslash($_POST['bkb_poll_options']??'')) as $line){$line=sanitize_text_field($line);if($line!=='')$options[]=$line;} $options=array_values(array_unique($options)); if(count($options)<2){wp_safe_redirect(bkb_front_url(0,'poll-options'));exit;} }
+    $options=array(); if($type==='poll'){ $raw_options=isset($_POST['bkb_poll_option'])?(array)wp_unslash($_POST['bkb_poll_option']):array(); foreach($raw_options as $line){$line=sanitize_text_field($line);if($line!=='')$options[]=$line;} $options=array_values(array_unique($options)); if(count($options)<2){wp_safe_redirect(bkb_front_url(0,'poll-options'));exit;} }
     $id=wp_insert_post(array('post_type'=>'bkb_post','post_status'=>'publish','post_title'=>$title,'post_content'=>$body,'post_author'=>get_current_user_id(),'comment_status'=>'open'),true);
     if(is_wp_error($id)) wp_die(esc_html($id->get_error_message()));
     update_post_meta($id,'_bkb_type',$type); update_post_meta($id,'_bkb_status','open');

@@ -8,6 +8,38 @@
     const syncPoll = () => { if (pollFields && typeSelect) pollFields.hidden = typeSelect.value !== 'poll'; };
     typeSelect?.addEventListener('change', syncPoll); syncPoll();
 
+    // Poll: dynamische lijst met keuzes i.p.v. één tekstvak met regels
+    const pollList = document.querySelector('#bkb-poll-options-list');
+    const pollAddBtn = document.querySelector('#bkb-poll-option-add');
+    const MIN_POLL_OPTIONS = 2;
+    const renumberPollOptions = () => {
+      if (!pollList) return;
+      const rows = pollList.querySelectorAll('.bkb-poll-option-row');
+      rows.forEach((row, i) => {
+        const input = row.querySelector('input');
+        if (input) input.placeholder = `Keuze ${i + 1}`;
+        const removeBtn = row.querySelector('.bkb-poll-option-remove');
+        if (removeBtn) removeBtn.hidden = rows.length <= MIN_POLL_OPTIONS;
+      });
+    };
+    pollAddBtn?.addEventListener('click', () => {
+      if (!pollList) return;
+      const row = document.createElement('div');
+      row.className = 'bkb-poll-option-row';
+      row.innerHTML = '<input class="bkp-field" type="text" name="bkb_poll_option[]" maxlength="200"><button type="button" class="bkb-poll-option-remove" aria-label="Verwijder deze keuze">&times;</button>';
+      pollList.appendChild(row);
+      renumberPollOptions();
+      row.querySelector('input')?.focus();
+    });
+    pollList?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.bkb-poll-option-remove');
+      if (!btn) return;
+      if (pollList.querySelectorAll('.bkb-poll-option-row').length <= MIN_POLL_OPTIONS) return;
+      btn.closest('.bkb-poll-option-row')?.remove();
+      renumberPollOptions();
+    });
+    renumberPollOptions();
+
     document.querySelectorAll('[data-bkb-compose]').forEach((button) => {
       button.addEventListener('click', () => {
         const type = button.dataset.bkbCompose || 'question';
