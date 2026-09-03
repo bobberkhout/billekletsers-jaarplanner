@@ -1,0 +1,61 @@
+name: Build en publiceer installeerbare zips
+
+# Draait automatisch bij elke push naar main die iets in plugins/, themes/ of
+# mu-plugins/ wijzigt, en is ook altijd handmatig te starten via het "Actions"-
+# tabblad op GitHub ("Run workflow").
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'plugins/**'
+      - 'themes/**'
+      - 'mu-plugins/**'
+  workflow_dispatch: {}
+
+# Nodig zodat de automatische GITHUB_TOKEN van deze workflow een Release mag
+# aanmaken. Er is dus GEEN los Personal Access Token voor nodig.
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Zip elke plugin en elk thema (top-level map = slug, zoals WordPress verwacht)
+        run: |
+          mkdir -p dist
+          if [ -d plugins ]; then
+            for dir in plugins/*/ ; do
+              slug="$(basename "$dir")"
+              (cd plugins && zip -rq "../dist/${slug}.zip" "${slug}")
+              echo "Gezipt: ${slug}.zip"
+            done
+          fi
+          if [ -d themes ]; then
+            for dir in themes/*/ ; do
+              slug="$(basename "$dir")"
+              (cd themes && zip -rq "../dist/${slug}.zip" "${slug}")
+              echo "Gezipt: ${slug}.zip"
+            done
+          fi
+          # mu-plugins zijn losse .php-bestanden; die hoeven niet gezipt te
+          # worden, WordPress plaatst ze direct in wp-content/mu-plugins/.
+          if [ -d mu-plugins ]; then
+            find mu-plugins -maxdepth 1 -name '*.php' -exec cp {} dist/ \;
+          fi
+          ls -la dist
+
+      - name: Release-naam bepalen
+        id: tag
+        run: echo "tag=build-$(date -u +'%Y%m%d-%H%M%S')" >> "$GITHUB_OUTPUT"
+
+      - name: Publiceer GitHub Release met de zips als bijlage
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: "Build ${{ steps.tag.outputs.tag }}"
+          make_latest: true
+          files: dist/*
