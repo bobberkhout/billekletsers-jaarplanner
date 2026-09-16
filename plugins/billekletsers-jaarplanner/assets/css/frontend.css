@@ -129,3 +129,23 @@ body.bkp-mobile-menu-open{overflow:hidden!important}
 .bkp-responsibility-filter-summary .bkp-filter-reset{margin-left:auto}
 @media(max-width:980px){.bkp-responsibility-filters{grid-template-columns:1fr 1fr}.bkp-responsibility-filter-search{grid-column:1/-1}}
 @media(max-width:620px){.bkp-responsibility-filters{grid-template-columns:1fr}.bkp-responsibility-filter-search{grid-column:auto}.bkp-responsibility-filter-summary{align-items:flex-start;flex-direction:column}.bkp-responsibility-filter-summary .bkp-filter-reset{margin-left:0}}
+
+/* Overzicht bij het algemene wachtwoord gericht op jaarplanning, documenten en de vereniging - versie 1.5.7. */
+.bkp-overview-grid--guest{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bkp-guest-card{display:flex!important;gap:14px;align-items:flex-start;text-align:left;text-decoration:none;color:var(--bkp-ink,#242424);transition:.18s transform,.18s border-color}
+.bkp-guest-card:hover{transform:translateY(-2px);border-color:#e5a9ad}
+.bkp-guest-icon{width:44px;height:44px;flex:0 0 auto;border-radius:12px;background:var(--bkp-red-soft,#fff0f1);color:var(--bkp-red-dark,#b6040e);display:flex;align-items:center;justify-content:center}
+.bkp-guest-body{display:grid!important;gap:2px}
+.bkp-guest-card strong{font-size:1.1rem}
+.bkp-guest-desc{display:block;color:var(--bkp-muted,#6b6b6b);font-size:.88rem;margin-bottom:6px}
+.bkp-guest-go{display:inline-flex!important;align-items:center;gap:4px;font-weight:800;font-size:.86rem;color:var(--bkp-red-dark,#b6040e)}
+.bkp-org-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-top:1px solid var(--bkp-line,#eadfe0)}
+.bkp-org-row:first-child{border-top:0}
+.bkp-org-icon{width:34px;height:34px;flex:0 0 auto;border-radius:10px;background:var(--bkp-red-soft,#fff0f1);color:var(--bkp-red-dark,#b6040e);display:flex;align-items:center;justify-content:center}
+.bkp-org-row strong{display:block;font-size:.92rem}
+.bkp-org-row span span{display:block;color:var(--bkp-muted,#6b6b6b);font-size:.84rem}
+.bkp-cta{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#fff;border:1px solid var(--bkp-line,#eadfe0);border-radius:16px;padding:22px 24px;box-shadow:0 4px 16px rgba(60,0,5,.04)}
+.bkp-cta h3{margin:0 0 4px;font-size:1.12rem}
+.bkp-cta p{margin:0;color:var(--bkp-muted,#6b6b6b);max-width:640px}
+.bkp-cta-actions{display:flex;gap:10px;flex:0 0 auto}
+@media(max-width:900px){.bkp-cta{flex-direction:column;align-items:flex-start}}

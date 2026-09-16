@@ -15,6 +15,7 @@ $committees  = bkp_committee_groups();
 $documents   = bkp_documents(true);
 $board       = get_option('bkp_board', array());
 $contact     = get_option('bkp_contact', '');
+$contact_details = (array) get_option('bkp_contact_details', array());
 $months      = get_option('bkp_months', array());
 
 $dated = 0; $confirmed = 0; $undated = 0;
@@ -115,13 +116,11 @@ foreach ($todos as $todo_item) if (!bkp_get_project_id($todo_item->ID)) { $has_u
 
 <section class="bkp-panel is-active" data-panel="overview">
     <div class="bkp-section-heading-row"><div><span class="bkp-eyebrow bkp-eyebrow--red">Snel overzicht</span><h2 class="bkp-section-title">Wat staat er op stapel?</h2></div></div>
+    <?php if (is_user_logged_in()): ?>
     <div class="bkp-overview-grid">
         <a class="bkp-card bkp-overview-card" data-open-tab="projects" href="#projects"><strong><?php echo esc_html(count($projects)); ?></strong><span>projecten</span><small>Voortgang per hoofdonderwerp</small></a>
         <a class="bkp-card bkp-overview-card" data-open-tab="agenda" href="#agenda"><strong><?php echo esc_html($dated); ?></strong><span>activiteiten met datum</span><small>Open de volledige jaarplanning</small></a>
-        <a class="bkp-card bkp-overview-card" data-open-tab="responsibilities" href="#responsibilities">
-            <?php if (is_user_logged_in()): ?><strong><?php echo esc_html($responsibility_open_count); ?></strong><span>mijn verantwoordelijkheden</span><small>Alles wat jij moet oppakken</small>
-            <?php else: ?><strong>Persoonlijk</strong><span>mijn verantwoordelijkheden</span><small>Log in om jouw overzicht te bekijken</small><?php endif; ?>
-        </a>
+        <a class="bkp-card bkp-overview-card" data-open-tab="responsibilities" href="#responsibilities"><strong><?php echo esc_html($responsibility_open_count); ?></strong><span>mijn verantwoordelijkheden</span><small>Alles wat jij moet oppakken</small></a>
         <a class="bkp-card bkp-overview-card" data-open-tab="documents" href="#documents"><strong><?php echo esc_html(count($documents)); ?></strong><span>documenten</span><small>Bestanden per project en algemeen</small></a>
     </div>
 
@@ -150,6 +149,68 @@ foreach ($todos as $todo_item) if (!bkp_get_project_id($todo_item->ID)) { $has_u
             </div><?php else: ?><p class="bkp-muted-label">Maak eerst projecten aan en koppel de planningonderdelen.</p><?php endif; ?>
         </section>
     </div>
+    <?php else: ?>
+    <div class="bkp-overview-grid bkp-overview-grid--guest">
+        <a class="bkp-card bkp-guest-card" data-open-tab="agenda" href="#agenda">
+            <span class="bkp-guest-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg></span>
+            <span class="bkp-guest-body"><strong>Jaarplanning</strong><span class="bkp-guest-desc"><?php echo esc_html(count($events).' activiteiten, '.$dated.' met vastgestelde datum'); ?></span><span class="bkp-guest-go">Volledige jaarplanning<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a class="bkp-card bkp-guest-card" data-open-tab="documents" href="#documents">
+            <span class="bkp-guest-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h4"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span>
+            <span class="bkp-guest-body"><strong>Documenten</strong><span class="bkp-guest-desc"><?php echo esc_html(count($documents).' bestanden om te downloaden'); ?></span><span class="bkp-guest-go">Alle documenten<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a class="bkp-card bkp-guest-card" data-open-tab="committees" href="#committees">
+            <span class="bkp-guest-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01M9 9h.01M15 9h.01"/></svg></span>
+            <span class="bkp-guest-body"><strong>De vereniging</strong><span class="bkp-guest-desc"><?php echo esc_html('Bestuur, contact en '.count($committees).' commissie'.(count($committees) === 1 ? '' : 's')); ?></span><span class="bkp-guest-go">Bekijk de vereniging<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></span>
+        </a>
+    </div>
+
+    <div class="bkp-overview-columns">
+        <section class="bkp-card">
+            <div class="bkp-section-heading-row"><div><span class="bkp-eyebrow bkp-eyebrow--red">Vooruitblik</span><h3>De eerstvolgende activiteiten</h3></div><a data-open-tab="agenda" href="#agenda">Volledige jaarplanning</a></div>
+            <?php if ($upcoming_events): ?><div class="bkp-upcoming-list">
+                <?php foreach ($upcoming_events as $upcoming):
+                    $date = (string) get_post_meta($upcoming->ID, '_bkp_date', true);
+                    $time = trim((string) get_post_meta($upcoming->ID, '_bkp_time', true));
+                    $location = trim((string) get_post_meta($upcoming->ID, '_bkp_location', true));
+                    $project_name = bkp_project_name(bkp_get_project_id($upcoming->ID), 'Niet gekoppeld');
+                    $details = array_filter(array($time, $location));
+                ?>
+                <a data-open-tab="agenda" href="#agenda"><time datetime="<?php echo esc_attr($date); ?>"><?php echo esc_html(bkp_format_date($date)); ?></time><strong><?php echo esc_html($upcoming->post_title); ?></strong><span><?php echo esc_html($project_name . ($details ? ' · '.implode(' · ', $details) : '')); ?></span></a>
+                <?php endforeach; ?>
+            </div><?php else: ?><p class="bkp-muted-label">Er zijn nog geen komende activiteiten met een datum.</p><?php endif; ?>
+        </section>
+
+        <section class="bkp-card">
+            <div class="bkp-section-heading-row"><h3>Bestuur &amp; contact</h3><a data-open-tab="info" href="#info">Alle gegevens</a></div>
+            <div class="bkp-org-row">
+                <span class="bkp-org-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg></span>
+                <span><strong><?php echo esc_html(!empty($contact_details['contact_name']) ? $contact_details['contact_name'] : 'Bestuur'); ?></strong><span>Voor vragen of opmerkingen</span></span>
+            </div>
+            <div class="bkp-org-row">
+                <span class="bkp-org-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <span><strong><?php echo esc_html(count($committees).' commissie'.(count($committees) === 1 ? '' : 's').' actief'); ?></strong><span>Wie zit er waar in</span></span>
+            </div>
+            <div class="bkp-org-row">
+                <span class="bkp-org-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                <span><strong><?php echo esc_html('Seizoen '.get_option('bkp_season', '')); ?></strong><span>Huidige bestuursperiode</span></span>
+            </div>
+        </section>
+    </div>
+
+    <?php if (function_exists('bkp_registration_is_open') && bkp_registration_is_open()): ?>
+    <div class="bkp-cta">
+        <div>
+            <h3>Werkend lid of actief in een commissie?</h3>
+            <p>Meld je aan voor een persoonlijk account. Daarmee zie je je eigen taken en verantwoordelijkheden, en krijg je toegang tot het Billeplein.</p>
+        </div>
+        <div class="bkp-cta-actions">
+            <a class="bkp-btn bkp-btn--light" href="<?php echo esc_url(wp_login_url(home_url('/'))); ?>">Inloggen</a>
+            <a class="bkp-btn" href="<?php echo esc_url(bkp_registration_url()); ?>">Registreren als lid</a>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php endif; ?>
     <?php if (is_user_logged_in()) do_action('bkp_overview_extensions'); ?>
 </section>
 
