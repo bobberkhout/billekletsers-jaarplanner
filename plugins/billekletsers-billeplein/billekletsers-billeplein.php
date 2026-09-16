@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Billekletsers Billeplein
  * Plugin URI: https://www.cvdebillekletsers.nl/
- * Description: Interne sociale plek voor werkende leden: vragen, ideeën, hulpvragen, polls, reacties en e-mailmeldingen.
- * Version: 1.1.0
+ * Description: Interne sociale plek voor leden: vragen, ideeën, hulpvragen, polls, reacties en e-mailmeldingen.
+ * Version: 1.1.1
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Author: C.V. De Billekletsers
@@ -11,7 +11,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('BKB_VERSION','1.1.0');
+define('BKB_VERSION','1.1.1');
 define('BKB_FILE',__FILE__);
 define('BKB_DIR',plugin_dir_path(__FILE__));
 define('BKB_URL',plugin_dir_url(__FILE__));
@@ -136,7 +136,7 @@ function bkb_render_panel(){
     $posts=bkb_recent_posts(50); $projects=bkb_projects(); $uid=get_current_user_id();
     ?>
     <section class="bkp-panel" data-panel="billeplein" id="billeplein">
-      <div class="bkp-section-heading-row"><div><span class="bkp-eyebrow bkp-eyebrow--red">Voor werkende leden</span><h2 class="bkp-section-title">Billeplein</h2><p class="bkp-section-intro">Een plek voor vragen, ideeën, hulpvragen, polls en reacties binnen de vereniging.</p></div></div>
+      <div class="bkp-section-heading-row"><div><span class="bkp-eyebrow bkp-eyebrow--red">Voor leden met een account</span><h2 class="bkp-section-title">Billeplein</h2><p class="bkp-section-intro">Een plek voor vragen, ideeën, hulpvragen, polls en reacties binnen de vereniging.</p></div></div>
       <?php bkb_notice(); ?>
       <div class="bkb-top-grid">
         <details class="bkp-card bkb-compose" id="bkb-compose"><summary>Nieuw op het Billeplein</summary>

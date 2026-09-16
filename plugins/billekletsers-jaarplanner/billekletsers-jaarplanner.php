@@ -3,7 +3,7 @@
  * Plugin Name: Billekletsers Jaarplanner
  * Plugin URI: https://www.cvdebillekletsers.nl/
  * Description: Centrale functionaliteit voor de interne jaarplanning, taken, commissies, documenten, frontend bewerken en seizoenswissels.
- * Version: 1.5.5
+ * Version: 1.5.6
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Author: C.V. De Billekletsers
@@ -13,7 +13,7 @@
 if (!defined('ABSPATH')) { exit; }
 
 final class BKP_Core_Bootstrap {
-    const VERSION = '1.5.5';
+    const VERSION = '1.5.6';
     const SCHEMA_VERSION = '6.1.0';
 
     public static function init() {

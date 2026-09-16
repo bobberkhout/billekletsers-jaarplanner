@@ -2,7 +2,7 @@
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Openbare registratie voor werkende leden.
+ * Openbare registratie voor leden (werkend of niet).
  * Een aanvraag maakt nog geen WordPress-account aan. Pas na goedkeuring door
  * een beheerder wordt een account met de rol Abonnee aangemaakt.
  */
@@ -211,7 +211,7 @@ function bkp_registration_render_public_page() {
 <main class="bkp-lock">
     <section class="bkp-lock-card bkp-registration-card">
         <img src="<?php echo esc_url(BKP_CORE_URI . '/assets/images/logo-cropped.jpg'); ?>" alt="C.V. De Billekletsers">
-        <h1>Registreren als werkend lid</h1>
+        <h1>Registreren als lid</h1>
         <p class="bkp-registration-intro"><?php echo esc_html((string) get_option('bkp_registration_intro', 'Vraag hier je persoonlijke account voor de interne jaarplanner aan. Een beheerder controleert de aanvraag voordat je kunt inloggen.')); ?></p>
         <?php if ($result['message'] !== ''): ?>
             <div class="bkp-registration-message <?php echo $result['success'] ? 'is-success' : 'is-error'; ?>"><?php echo esc_html($result['message']); ?></div>
@@ -396,7 +396,7 @@ function bkp_registration_admin_page() {
     <div class="wrap bkp-admin-wrap bkp-registration-admin">
         <h1>Registratieaanvragen</h1>
         <?php if (function_exists('bkp_admin_show_notice')) bkp_admin_show_notice(); ?>
-        <p class="bkp-admin-lead">Deel de registratielink met werkende leden. Een aanvraag geeft nog geen toegang. Pas na jouw goedkeuring wordt een persoonlijk WordPress-account aangemaakt.</p>
+        <p class="bkp-admin-lead">Deel de registratielink met leden (werkend of niet). Een aanvraag geeft nog geen toegang. Pas na jouw goedkeuring wordt een persoonlijk WordPress-account aangemaakt.</p>
 
         <section class="bkp-admin-panel bkp-registration-share">
             <h2>Registratielink delen</h2>
