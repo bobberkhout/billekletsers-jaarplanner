@@ -96,6 +96,27 @@ function bkp_user_responsibilities($user_id=0, $include_completed=true) {
         $project_name = bkp_project_name($project_id, $topic !== '' ? $topic : 'Niet gekoppeld');
         $external_url = '';
 
+        // Snel de status en/of deadline kunnen aanpassen vanuit "Mijn verantwoordelijkheden"
+        // zelf, zonder eerst naar het losse onderdeelscherm te hoeven. Alleen de velden
+        // die voor dit type onderdeel bestaan (o.a. status bij to-do) worden getoond.
+        $quick_fields = array();
+        if (function_exists('bkp_responsibility_operational_fields')) {
+            $operational_fields = bkp_responsibility_operational_fields($post, $section);
+            if (isset($operational_fields['deadline'])) {
+                $quick_fields['deadline'] = array(
+                    'label' => $operational_fields['deadline']['label'],
+                    'value' => $deadline,
+                );
+            }
+            if (isset($operational_fields['status'])) {
+                $status_context = $operational_fields['status']['status_context'] ?? $section;
+                $quick_fields['status'] = array(
+                    'context' => $status_context,
+                    'value' => $status !== '' ? $status : bkp_status_default($status_context),
+                );
+            }
+        }
+
         $items[] = array(
             'id' => $post->ID,
             'title' => $post->post_title,
@@ -115,6 +136,7 @@ function bkp_user_responsibilities($user_id=0, $include_completed=true) {
             'section_url' => home_url('/#' . $tab),
             'edit_url' => bkp_user_can_frontend_edit($section, $user_id) ? bkp_frontend_editor_url($section) : '',
             'external_url' => $external_url,
+            'quick_fields' => $quick_fields,
         );
     }
 

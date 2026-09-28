@@ -380,6 +380,38 @@
     });
     applyResponsibilityFilters();
 
+    document.querySelectorAll('[data-bkp-quick-fields]').forEach((form) => {
+      const fields = Array.from(form.querySelectorAll('input,select'));
+      const feedback = form.querySelector('[data-bkp-quick-feedback]');
+      if (!fields.length) return;
+      const savedValues = new Map(fields.map((field) => [field, field.value]));
+      const submitQuickFields = () => {
+        const data = new FormData(form);
+        fields.forEach((field) => { field.disabled = true; });
+        if (feedback) feedback.textContent = 'Opslaan…';
+        fetch(form.getAttribute('action'), {
+          method: 'POST',
+          body: data,
+          credentials: 'same-origin',
+        }).then((response) => {
+          if (!response.ok) throw new Error('bkp-quick-fields-failed');
+          fields.forEach((field) => savedValues.set(field, field.value));
+          if (feedback) feedback.textContent = 'Opgeslagen';
+          window.setTimeout(() => {
+            if (feedback && feedback.textContent === 'Opgeslagen') feedback.textContent = '';
+          }, 2500);
+        }).catch(() => {
+          fields.forEach((field) => { field.value = savedValues.get(field); });
+          if (feedback) feedback.textContent = 'Opslaan mislukt, probeer opnieuw.';
+        }).finally(() => {
+          fields.forEach((field) => { field.disabled = false; });
+        });
+      };
+      fields.forEach((field) => {
+        field.addEventListener('change', submitQuickFields);
+      });
+    });
+
     document.querySelectorAll('[data-bkp-responsibility-url]').forEach((card) => {
       const openCard = () => {
         const url = String(card.dataset.bkpResponsibilityUrl || '');

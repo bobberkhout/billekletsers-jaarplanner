@@ -59,6 +59,21 @@ function bkp_render_responsibility_group($title, $items, $modifier='') {
             echo '<span>Status: '.esc_html($item['status']).'</span>';
             if ($item['responsible'] !== '') echo '<span>Samen met: '.esc_html($item['responsible']).'</span>';
             echo '</div></div><div class="bkp-responsibility-actions">';
+            if (!empty($item['quick_fields'])) {
+                $quick_fields = $item['quick_fields'];
+                echo '<form class="bkp-responsibility-quick-fields" data-bkp-quick-fields method="post" action="'.esc_url(admin_url('admin-post.php')).'">';
+                echo '<input type="hidden" name="action" value="bkp_save_responsibility_detail">';
+                echo '<input type="hidden" name="post_id" value="'.esc_attr((string)$item['id']).'">';
+                echo '<input type="hidden" name="bkp_responsibility_nonce" value="'.esc_attr(wp_create_nonce('bkp_save_responsibility_'.$item['id'])).'">';
+                if (isset($quick_fields['deadline'])) {
+                    echo '<input class="bkp-field bkp-quick-date" type="date" name="deadline" value="'.esc_attr($quick_fields['deadline']['value']).'" aria-label="'.esc_attr($quick_fields['deadline']['label'].' van '.$item['title']).'">';
+                }
+                if (isset($quick_fields['status'])) {
+                    bkp_render_status_select('status', $quick_fields['status']['context'], $quick_fields['status']['value'], 'bkp-field bkp-quick-status-select', 'Status van '.$item['title']);
+                }
+                echo '<span class="bkp-quick-feedback" data-bkp-quick-feedback aria-live="polite"></span>';
+                echo '</form>';
+            }
             echo '<a class="bkp-btn" href="'.esc_url($item['view_url']).'">Openen</a>';
             if ($item['edit_url'] !== '') echo '<a class="bkp-btn bkp-btn--light" href="'.esc_url($item['edit_url']).'">Volledig beheer</a>';
             echo '</div></article>';
